@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProyectoCatalogo</string>
+    <string name="prefs_file">com.alvaroherrera.proyectocatalogo.PREFERENCE_FILE_KEY</string>
+
+</resources>

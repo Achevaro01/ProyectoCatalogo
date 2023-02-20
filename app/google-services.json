@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "336456495480",
+    "project_id": "proyectocatalago",
+    "storage_bucket": "proyectocatalago.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336456495480:android:60f3925b2c3b431c85588d",
+        "android_client_info": {
+          "package_name": "com.alvaroherrera.proyectocatalogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336456495480-acv5j8qu4sc5glgdoa0c6tu11u8dp1kg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_TGVfCUUphoUQ3gUWFeZp2g2ONaUc7Js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336456495480-acv5j8qu4sc5glgdoa0c6tu11u8dp1kg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
