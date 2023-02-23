@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/empresaFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Empresa" />
+    <item
+        android:id="@+id/productoFragment"
+        android:icon="@drawable/cesta"
+        android:title="Producto" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/settings_icon"
+        android:title="Settings" />
+
+</menu>

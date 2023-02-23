@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="empresa"
+            type="com.alvaroherrera.proyectocatalogo.ui.home.Empresa" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/nombreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{empresa.nombre}"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/telefonoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{empresa.telefono}"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</layout>

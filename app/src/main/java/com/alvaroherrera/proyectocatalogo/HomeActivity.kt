@@ -1,10 +1,13 @@
 package com.alvaroherrera.proyectocatalogo
 
+import EmpresaFragment
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.alvaroherrera.proyectocatalogo.databinding.ActivityHomeBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.alvaroherrera.proyectocatalogo.ui.fragments.SettingsFragment
+
 
 enum class ProviderType{
     BASIC,
@@ -12,20 +15,23 @@ enum class ProviderType{
 }
 
 class HomeActivity : AppCompatActivity() {
+
+    companion object {
+        lateinit var context: Context
+    }
+
     private lateinit var binding: ActivityHomeBinding
+    private var contador = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //super.onCreate(savedInstanceState)
-        //binding = ActivityAuthBinding.inflate(layoutInflater)
-       // setContentView(binding.root)
 
         val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
-        setup(email ?: "", provider ?: "")
+
 
         // GUARDADO DE DATOS
 
@@ -33,23 +39,40 @@ class HomeActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
-    }
 
-    private fun setup(email: String, provider: String) {
-        title = "Inicio"
-        binding.emailTextView.text = email
-        binding.providerTextView.text = provider
+        val empresaFragment = EmpresaFragment()
+        val settingsFragment = SettingsFragment()
 
-        binding.logOutButton.setOnClickListener {
-            //Borrado de datos
-
-            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-            prefs.clear()
-            prefs.apply()
-
-            FirebaseAuth.getInstance().signOut()
-            onBackPressed()
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.empresaFragment -> makeCurrentFragment(empresaFragment)
+                R.id.settingsFragment -> makeCurrentFragment(settingsFragment)
+            }
+            true
         }
 
+
+
+
     }
+
+    private fun makeCurrentFragment(fragment : Fragment) = supportFragmentManager.beginTransaction().apply {
+        replace(R.id.frame_container, fragment)
+        commit()
+    }
+
+    override fun onBackPressed() {
+        if(binding.bottomNavigation.selectedItemId == R.id.empresaFragment){
+
+            if (contador == 0) {
+                finish()
+            } else {
+                super.onBackPressed()
+            }
+        } else {
+            binding.bottomNavigation.selectedItemId = R.id.empresaFragment
+        }
+    }
+
+
 }

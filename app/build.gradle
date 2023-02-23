@@ -29,12 +29,21 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    packagingOptions {
+        exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/NOTICE.md'
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
 
     buildFeatures {
         viewBinding true
+    }
+
+    buildFeatures {
+        dataBinding true
     }
 
     viewBinding {
@@ -62,6 +71,9 @@ dependencies {
     implementation 'androidx.wear.tiles:tiles-material:1.1.0'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    implementation "com.android.databinding:compiler:4.1.4"
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
